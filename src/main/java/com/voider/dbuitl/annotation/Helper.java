@@ -1,7 +1,11 @@
 package com.voider.dbuitl.annotation;
 
 import java.lang.reflect.InvocationTargetException;
-
+/**
+ * 
+ * @author Edgar Xolop
+ *
+ */
 
 public class Helper {
 	

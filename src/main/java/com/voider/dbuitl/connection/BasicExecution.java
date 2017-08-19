@@ -5,7 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/**
+ * 
+ * @author Edgar Xolop
+ *
+ */
 public abstract class BasicExecution  {
 	BaseConnetion baseConnection;
 		
@@ -15,7 +19,7 @@ public abstract class BasicExecution  {
 		return baseConnection.getConnection();
 	}	
 
-	private Connection closeConnection(){
+	private Boolean closeConnection(){
 		return baseConnection.closeConnection();
 	}
 	

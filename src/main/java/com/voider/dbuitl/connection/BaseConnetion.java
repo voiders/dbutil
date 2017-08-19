@@ -9,6 +9,7 @@ import java.sql.Connection;
 
 public interface BaseConnetion {
 
+	void init();
 	Connection getConnection();
-	Connection closeConnection();
+	Boolean closeConnection();
 }

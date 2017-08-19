@@ -1,5 +1,9 @@
 package com.voider.dbuitl.connection;
-
+/**
+ * 
+ * @author Edgar Xolop
+ *
+ */
 public class VoiderConnection extends BasicExecution {
 
 	private static VoiderConnection instance;
