@@ -8,7 +8,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 /**
- * 
+ * Implements BaseConnetion interface for default connection 
  * @author Edgar Xolop
  *
  */
@@ -18,11 +18,19 @@ public class DataSourceConnection implements BaseConnetion{
 	private DataSource ds;
 	private String nameContext;
 	
+	/**
+	 *  
+	 * @param nameContext Datasource declared
+	 */
 	public DataSourceConnection(String nameContext) {
 		this.nameContext = nameContext;
 	}
 	
 	@Override
+	/**
+	 * Load datasource properties
+	 * 
+	 */
 	public void init(){
 		Context initContext;
 		
@@ -41,6 +49,10 @@ public class DataSourceConnection implements BaseConnetion{
 	}
 
 	@Override
+	/**
+	 * if the connection is closed,a new connection is returned
+	 * @return the connection
+	 */
 	public Connection getConnection() {
 		try {
 			if(this.conn.isClosed()){
@@ -53,6 +65,9 @@ public class DataSourceConnection implements BaseConnetion{
 	}
 
 	@Override
+	/**
+	 * @return true - if the connection has been closed
+	 */
 	public Boolean closeConnection(){
 		Boolean closed = false;
 		try {	

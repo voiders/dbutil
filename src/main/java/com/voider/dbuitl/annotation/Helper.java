@@ -11,6 +11,11 @@ public class Helper {
 	
 	private Helper(){}
 	
+	/**
+	 * Getting the name of table
+	 * @param c - Class with the Table annotation to get the table name
+	 * @return name of table setted
+	 */
 	public static String getTableName(Class<?> c) {
 		String name = null;
 		
@@ -22,6 +27,13 @@ public class Helper {
 		
 		return name;
 	}
+	
+	/**
+	 * Execute the method declared in the bean defined
+	 * @param bean - object with getter methods
+	 * @param methodName - name of the get method
+	 * @return return the value of method registered in param method Name
+	 */
 	public static Object getFieldValue(Object bean,String methodName){
 		Object value = null;
 			

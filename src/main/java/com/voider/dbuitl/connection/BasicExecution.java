@@ -6,28 +6,49 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 /**
- * 
+ * Basic methods to functional connection class
  * @author Edgar Xolop
  *
  */
 public abstract class BasicExecution  {
 	BaseConnetion baseConnection;
-		
-	abstract void loadBaseConnection(BaseConnetion base);
 	
+	/**
+	 * 
+	 * @param base
+	 */
+	abstract void loadBaseConnection(BaseConnetion base);
+	/**
+	 * 
+	 * @return return database connection
+	 */
 	private Connection getConnection(){
 		return baseConnection.getConnection();
 	}	
 
+	/**
+	 * close the currente connection
+	 * @return
+	 */
 	private Boolean closeConnection(){
 		return baseConnection.closeConnection();
 	}
-	
+	/**
+	 * 
+	 * @return BaseConnetionn setted
+	 */
 	public BaseConnetion getBaseConnection(){
 		return baseConnection;
 	};
 	
-
+	/**
+	 * Execute the query update
+	 * 
+	 * @param sql - update to execute "UPDATE USER SET NAME = ? , LAST_NAME = ?"
+	 * @param args - parameters to load in the query "Foo","Bar"
+	 * @return number of rows affected
+	 * @throws SQLException
+	 */
 	public Integer update(String sql, Object... args) throws SQLException{
 		Integer rowsAffected = 0;	
 		
@@ -47,6 +68,14 @@ public abstract class BasicExecution  {
 		return rowsAffected;
 	}
 	
+	/**
+	 * Execute the insert query
+	 * 
+	 * @param sql - update to execute "INSERT INTO USER(NAME,LAST_NAME)"
+	 * @param args - parameters to load in the query "Foo","Bar"
+	 * @return return the id generated 
+	 * @throws SQLException
+	 */
 	public Integer insert(String sql, Object... args) throws SQLException{
 		Integer id = null;
 		

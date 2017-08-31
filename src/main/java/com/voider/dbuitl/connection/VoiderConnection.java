@@ -1,6 +1,6 @@
 package com.voider.dbuitl.connection;
 /**
- * 
+ * Extends BasicExecution abstract class for default connection 
  * @author Edgar Xolop
  *
  */
@@ -16,8 +16,12 @@ public class VoiderConnection extends BasicExecution {
 		
 		return instance;
 	}
-
 	@Override
+	/**
+	 * Load the BaseConnection implemented
+	 * 
+	 * @param base 
+	 */
 	void loadBaseConnection(BaseConnetion base) {
 		baseConnection = base;
 	}
