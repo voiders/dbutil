@@ -79,6 +79,8 @@ public abstract class BasicExecution  {
 	public Integer insert(String sql, Object... args) throws SQLException{
 		Integer id = null;
 		
+		getConnection().setAutoCommit(false);
+		
 		PreparedStatement preparedStatement = getConnection().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 		
 		for (int i = 0; i < args.length; i++) {
@@ -89,6 +91,8 @@ public abstract class BasicExecution  {
 		preparedStatement.addBatch();
 		
 		preparedStatement.executeBatch();
+
+		getConnection().setAutoCommit(true);
 		
 		System.out.println("Executing sql " + preparedStatement);
 		

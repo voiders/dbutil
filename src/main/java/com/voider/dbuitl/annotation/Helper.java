@@ -1,6 +1,9 @@
 package com.voider.dbuitl.annotation;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * 
  * @author Edgar Xolop
@@ -26,6 +29,20 @@ public class Helper {
 		}
 		
 		return name;
+	}
+
+	public static List<ColumnObject> getListFieldName(Class<?> c) {
+		List<ColumnObject> columns = new ArrayList<ColumnObject>();
+		
+		Field fields[] = c.getDeclaredFields();
+		
+		for(Field f : fields){
+			
+			columns.add(new ColumnObject(f.getAnnotation(Column.class).name(), f.getAnnotation(Column.class).alias(), f.getAnnotation(Column.class).primarykey(), f.getAnnotation(Column.class).autoassigned()));
+			
+		}
+		
+		return columns;
 	}
 	
 	/**
