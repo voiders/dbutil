@@ -2,8 +2,8 @@ package com.voider.dbutil.annotation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /**
  * 
  * @author Edgar Xolop
@@ -31,14 +31,15 @@ public class Helper {
 		return name;
 	}
 
-	public static List<ColumnObject> getListFieldName(Class<?> c) {
-		List<ColumnObject> columns = new ArrayList<ColumnObject>();
-		
+	public static Map<String, ColumnObject> getListFieldName(Class<?> c) {
+		Map<String, ColumnObject> columns;		
 		Field fields[] = c.getDeclaredFields();
+		
+		columns = new HashMap<>();
 		
 		for(Field f : fields){
 			
-			columns.add(new ColumnObject(f.getAnnotation(Column.class).name(), f.getAnnotation(Column.class).alias(), f.getAnnotation(Column.class).primarykey(), f.getAnnotation(Column.class).autoassigned()));
+			columns.put(f.getAnnotation(Column.class).name(),new ColumnObject(f.getAnnotation(Column.class).name(), f.getAnnotation(Column.class).alias(), f.getAnnotation(Column.class).primarykey(), f.getAnnotation(Column.class).autoassigned()));
 			
 		}
 		
