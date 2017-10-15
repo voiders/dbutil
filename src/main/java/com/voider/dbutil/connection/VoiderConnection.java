@@ -1,4 +1,4 @@
-package com.voider.dbuitl.connection;
+package com.voider.dbutil.connection;
 /**
  * Extends BasicExecution abstract class for default connection 
  * @author Edgar Xolop

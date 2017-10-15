@@ -1,4 +1,4 @@
-package com.voider.dbuitl;
+package com.voider.dbutil;
 
 /**
  * Hello world!

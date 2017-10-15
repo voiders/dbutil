@@ -1,4 +1,4 @@
-package com.voider.dbuitl.annotation;
+package com.voider.dbutil.annotation;
 
 public class ColumnObject {
 	private String name;

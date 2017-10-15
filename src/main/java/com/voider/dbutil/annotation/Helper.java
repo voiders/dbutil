@@ -1,4 +1,4 @@
-package com.voider.dbuitl.annotation;
+package com.voider.dbutil.annotation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

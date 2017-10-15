@@ -1,4 +1,4 @@
-package com.voider.dbuitl.connection;
+package com.voider.dbutil.connection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
