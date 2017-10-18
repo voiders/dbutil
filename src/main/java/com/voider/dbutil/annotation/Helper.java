@@ -54,7 +54,7 @@ public class Helper {
 		return columns;
 	}
 	
-	public static Map<String, Map<String, ColumnObject>> getTabes(String entityPackage){
+	public static Map<String, Map<String, ColumnObject>> getTables(String entityPackage){
 		Map<String, Map<String, ColumnObject>> tables;
 		 
 		tables = new HashMap<>();
