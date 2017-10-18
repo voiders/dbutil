@@ -4,6 +4,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+
+import org.reflections.Reflections;
 /**
  * 
  * @author Edgar Xolop
@@ -31,6 +34,11 @@ public class Helper {
 		return name;
 	}
 
+	/**
+	 * Getting the name of columns declared
+	 * @param c - Class with the Column annotation to get the columns properties
+	 * @return Map <String,ColumnObject>
+	 */
 	public static Map<String, ColumnObject> getListFieldName(Class<?> c) {
 		Map<String, ColumnObject> columns;		
 		Field fields[] = c.getDeclaredFields();
@@ -45,6 +53,21 @@ public class Helper {
 		
 		return columns;
 	}
+	
+	public static Map<String, Map<String, ColumnObject>> getTabes(String entityPackage){
+		Map<String, Map<String, ColumnObject>> tables;
+		 
+		tables = new HashMap<>();
+		
+		Reflections reflections = new Reflections(entityPackage);
+		
+		Set<Class<?>> talbeAClass = reflections.getTypesAnnotatedWith(Table.class);
+		
+		for(Class<?> c : talbeAClass){
+			tables.put(getTableName(c), getListFieldName(c));
+		}
+		return tables;
+	}	
 	
 	/**
 	 * Execute the method declared in the bean defined
